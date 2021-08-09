@@ -1,26 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TinderCard from "react-tinder-card";
 import "../styles/Cards.css";
+import axios from "../axios";
 
 function Cards() {
-  const [people, setPeople] = useState([
-    {
-      name: "Fito Paez",
-      url: "https://www.eltiempo.com/files/image_640_428/uploads/2020/04/17/5e9a781b751e4.jpeg",
-    },
-    {
-      name: "Luis Alberto Spinetta",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Spinetta%2C_1969.jpg/200px-Spinetta%2C_1969.jpg",
-    },
-    {
-      name: "Gustavo Cerati",
-      url: "https://upload.wikimedia.org/wikipedia/commons/a/ac/Gustavo_Cerati.jpg",
-    },
-    {
-      name: "Charly García",
-      url: "https://elrockescultura.com/wp-content/uploads/2017/10/charly-garcia-1827195194.jpg",
-    },
-  ]);
+  const [people, setPeople] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const req = await axios.get("/musicorum/cards");
+      console.log("data: ", req.data);
+      setPeople(req.data);
+    }
+    fetchData();
+    console.log("people: ", people);
+  }, []);
   const swiped = (direction, nameToDelete) => {
     console.log("removing: " + nameToDelete);
     //setLastDirection(direction);
