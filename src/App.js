@@ -1,16 +1,16 @@
 import React from "react";
-import "./App.css";
-import Cards from "./components/Cards";
-import Header from "./components/Header";
-import SwipeButtons from "./components/SwipeButtons";
+import SwipeCards from "./views/SwipeCards";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./views/Home";
 
 function App() {
   return (
-    <div className="app">
-      <Header />
-      <Cards />
-      <SwipeButtons />
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/match" component={SwipeCards} />
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </Router>
   );
 }
 
