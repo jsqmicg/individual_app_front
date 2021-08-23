@@ -89,7 +89,7 @@ const Login = ({ history }) => {
             });
             console.log(res.data);
           });
-          isAuth() ? <Redirect to="/map" /> : <Redirect to="/" />;
+          history.push("/map");
           toast.success(`Hey ${res.data.user.name}, welcome back`);
         })
         .catch((err) => {
