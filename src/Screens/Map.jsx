@@ -26,6 +26,21 @@ function Map({ history }) {
   });
 
   useEffect(() => {
+    const accuracy = { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 };
+    const position = navigator.geolocation.getCurrentPosition(
+      function (position) {
+        setViewport({
+          width: "100vw",
+          height: "100vh",
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          zoom: 17,
+        });
+      },
+      (err) => console.log(err),
+      accuracy
+    );
+    console.log(position);
     const getPins = async () => {
       try {
         const res = await axios.get(`${process.env.REACT_APP_API_URL}/getpins`);
