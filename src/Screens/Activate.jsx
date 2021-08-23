@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import bass from "../images/bass.jpg";
+import travelers from "../images/travelers.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import jwt from "jsonwebtoken";
@@ -63,7 +63,7 @@ const Activate = ({ match }) => {
               <div className="mx-auto max-w-xs relative ">
                 <button
                   type="submit"
-                  className="mt-5 tracking-wide font-semibold bg-orange-400 text-gray-100 w-full py-4 rounded-lg hover:bg-orange-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+                  className="mt-5 tracking-wide font-semibold bg-orange-400 text-gray-100 w-full py-4 p-10 rounded-lg hover:bg-orange-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
                 >
                   <i className="fas fa-user-plus fa 1x w-6  -ml-2" />
                   <span className="ml-3">Activate your Account</span>
@@ -90,7 +90,7 @@ const Activate = ({ match }) => {
         <div className="flex-1 bg-gradient-to-b from-yellow-300 to-yellow-100 text-center hidden lg:flex rounded-t-lg rounded-b-lg">
           <div
             className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat "
-            style={{ backgroundImage: `url(${bass})` }}
+            style={{ backgroundImage: `url(${travelers})` }}
           ></div>
         </div>
       </div>

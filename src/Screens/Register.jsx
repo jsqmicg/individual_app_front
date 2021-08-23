@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import trio from "../assests/trio.jpg";
+import vacation from "../images/vacation.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import { authenticate, isAuth } from "../helpers/auth";
 import axios from "axios";
@@ -68,7 +68,7 @@ const Register = () => {
         <div className="lg:w-1/2 xl:w-5/12 p-100 sm:p-12">
           <div className="mt-12 flex flex-col items-center">
             <h1 className="text-2xl xl:text-3xl font-extrabold">
-              Sign Up to Rock out
+              Sign Up to Discover!
             </h1>
             <form
               className="w-full flex-1 mt-8 text-indigo-500"
@@ -130,7 +130,7 @@ const Register = () => {
         <div className="flex-1 bg-red-100 text-center hidden lg:flex rounded-t-lg rounded-b-lg">
           <div
             className="m-12 xl:m-16 w-full bg-contain rounded bg-center bg-no-repeat  "
-            style={{ backgroundImage: `url(${trio})`, borderRadius: "5" }}
+            style={{ backgroundImage: `url(${vacation})`, borderRadius: "5" }}
           ></div>
         </div>
       </div>

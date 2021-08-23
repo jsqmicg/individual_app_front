@@ -1,0 +1,92 @@
+.card {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+label {
+  color: rgb(212, 31, 91);
+  font-size: 20px;
+  font-style: italic;
+}
+
+.desc {
+  font-size: 20px;
+  text-align: justify;
+  width: 500px;
+}
+
+.star {
+  color: rgba(187, 170, 77, 0.911);
+  border-color: black;
+}
+
+.username {
+  font-size: 20px;
+}
+
+.controls {
+  width: 50px;
+  margin: 10px 0 0 10px;
+  cursor: "pointer";
+}
+
+.date {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.589);
+}
+
+form {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.842);
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-size: 12px;
+  color: rgba(128, 128, 128, 0.842);
+}
+
+.place {
+  font-size: 25px;
+}
+
+.submitButton {
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(212, 31, 91);
+  cursor: "pointer";
+}
+
+.buttons {
+  margin-top: 0;
+  padding-left: 180vh;
+}
+
+.buttonlogout {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(212, 31, 91);
+  font-size: 30px;
+  margin: 10px;
+  cursor: "pointer";
+  display: flex;
+}
+
+.logoout {
+  background-color: rgb(212, 31, 91);
+}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import pianoman from "../images/pianoman.jpg";
+import mapmundi from "../images/mapmundi.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 
@@ -36,7 +36,7 @@ const ForgetPassword = ({ history }) => {
     }
   };
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-700 to-gray-600 text-gray-900 flex justify-center">
+    <div className="min-h-screen bg-gradient-to-b from-orange-700 to-gray-400 text-gray-900 flex justify-center">
       <ToastContainer />
       <div className="max-w-screen-xl m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1">
         <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
@@ -58,7 +58,7 @@ const ForgetPassword = ({ history }) => {
                 />
                 <button
                   type="submit"
-                  className="mt-5 tracking-wide font-semibold bg-gray-500 text-gray-300 w-full py-4 rounded-lg hover:bg-gray-800 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+                  className="mt-5 tracking-wide font-semibold bg-blue-500 text-gray-300 w-full py-4 rounded-lg hover:bg-blue-800 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
                 >
                   <i className="fas fa-sign-in-alt  w-6  -ml-2" />
                   <span className="ml-3">Submit</span>
@@ -72,11 +72,11 @@ const ForgetPassword = ({ history }) => {
             </div>
           </div>
         </div>
-        <div className="flex-1 bg-gradient-to-b from-gray-700 to-gray-200 w-full h-full text-center hidden lg:flex rounded-t-lg rounded-b-lg ">
+        <div className="flex-1 bg-gradient-to-b from-blue-700 to-blue-100 w-full h-full text-center hidden lg:flex rounded-t-lg rounded-b-lg ">
           <div
             className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat rounded-t"
             style={{
-              backgroundImage: `url(${pianoman})`,
+              backgroundImage: `url(${mapmundi})`,
             }}
           ></div>
         </div>
