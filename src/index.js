@@ -11,6 +11,7 @@ import ForgetPassword from "./Screens/Forget";
 import SwipeCards from "./views/SwipeCards";
 import ResetPassword from "./Screens/Reset";
 import "react-toastify/dist/ReactToastify.css";
+import Map from "./Screens/Map";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -42,6 +43,7 @@ ReactDOM.render(
         exact
         render={(props) => <ResetPassword {...props} />}
       />
+      <Route path="/map" exact render={(props) => <Map {...props} />} />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

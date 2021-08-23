@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import guitar from "../images/guitar.jpg";
+import maps from "../images/maps.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import { authenticate, isAuth } from "../helpers/auth";
 import axios from "axios";
@@ -8,6 +8,8 @@ import { Store } from "@material-ui/icons";
 import { GoogleLogin } from "react-google-login";
 import { Button } from "@material-ui/core";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
+import { Facebook } from "@material-ui/icons";
+import { GTranslate } from "@material-ui/icons";
 
 const Login = ({ history }) => {
   const [formData, setFormData] = useState({
@@ -45,7 +47,7 @@ const Login = ({ history }) => {
     authenticate(response, () => {
       isAuth() && isAuth().role === "admin"
         ? history.push("/admin")
-        : history.push("/match");
+        : history.push("/map");
     });
   };
 
@@ -87,9 +89,7 @@ const Login = ({ history }) => {
             });
             console.log(res.data);
           });
-          isAuth() && isAuth().role === "admin"
-            ? history.push("/admin")
-            : history.push("/match");
+          isAuth() ? <Redirect to="/map" /> : <Redirect to="/" />;
           toast.success(`Hey ${res.data.user.name}, welcome back`);
         })
         .catch((err) => {
@@ -132,7 +132,7 @@ const Login = ({ history }) => {
                 />
                 <button
                   type="submit"
-                  className="mt-5 tracking-wide font-semibold bg-red-300 text-gray-100 w-full py-4 rounded-lg hover:bg-red-500 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+                  className="mt-5 tracking-wide font-semibold bg-purple-400 text-gray-100 w-full py-4 rounded-lg hover:bg-purple-500 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
                 >
                   Sign in
                 </button>
@@ -158,10 +158,10 @@ const Login = ({ history }) => {
                     <button
                       onClick={renderProps.onClick}
                       disabled={renderProps.disabled}
-                      className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
+                      className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-purple-400 hover:bg-purple-500 text-gray-100 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
                     >
                       <div className=" p-2 rounded-full ">
-                        <i className="fab fa-google " />
+                        <GTranslate />
                       </div>
                       <span className="ml-4">Sign In with Google</span>
                     </button>
@@ -174,18 +174,18 @@ const Login = ({ history }) => {
                   render={(renderProps) => (
                     <button
                       onClick={renderProps.onClick}
-                      className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5"
+                      className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-purple-400 hover:bg-purple-500 text-gray-100 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5"
                     >
                       <div className=" p-2 rounded-full ">
-                        <i className="fab fa-facebook" />
+                        <Facebook />
                       </div>
-                      <span className="ml-4">Sign In with Facebook</span>
+                      <span className="ml-4 ">Sign In with Facebook</span>
                     </button>
                   )}
                 />
                 <a
                   href="/register"
-                  className="mt-3 w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-red-300 text-gray-100 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5' hover:bg-red-500"
+                  className="mt-3 w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-purple-400 text-gray-100 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5' hover:bg-purple-500"
                 >
                   Sign up
                 </a>
@@ -193,10 +193,10 @@ const Login = ({ history }) => {
             </form>
           </div>
         </div>
-        <div className="flex-1 bg-gradient-to-b from-pink-400 to-pink-200 w-full h-full bg-opacity-50 text-center hidden lg:flex">
+        <div className="flex-1 bg-gradient-to-b from-purple-500 to-purple-200 w-full h-full bg-opacity-50 text-center hidden lg:flex">
           <div
             className="m-12 xl:m-16 w-full bg-contain rounded bg-center bg-no-repeat rounded-lg "
-            style={{ backgroundImage: `url(${guitar})`, borderRadius: "5" }}
+            style={{ backgroundImage: `url(${maps})`, borderRadius: "5" }}
           ></div>
         </div>
       </div>
