@@ -1,6 +1,6 @@
 .card {
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -14,14 +14,15 @@
 label {
   margin-top: 10px;
   color: rgb(212, 31, 91);
-  font-size: 25px;
+  font-size: 15px;
   font-style: italic;
-  width: 250px;
-  height: 250px;
+  width: 50px;
+  height: 150px;
+  word-wrap: break-word;
 }
 
 .desc {
-  font-size: 20px;
+  font-size: 15px;
   text-align: justify;
   width: 500px;
 }
@@ -32,7 +33,7 @@ label {
 }
 
 .username {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .controls {
@@ -79,7 +80,7 @@ textarea::placeholder {
 }
 
 .place {
-  font-size: 25px;
+  font-size: 15px;
 }
 
 .submitButton {
@@ -92,9 +93,15 @@ textarea::placeholder {
   font-size: 25px;
 }
 
+.topbar {
+  display: flex;
+}
+
 .buttons {
-  margin-top: 0;
-  padding-left: 180vh;
+  margin-top: 10px;
+  position: absolute;
+  padding-left: 195vh;
+  position: flex;
 }
 
 .buttonlogout {
@@ -103,10 +110,10 @@ textarea::placeholder {
   border-radius: 5px;
   color: white;
   background-color: rgb(212, 31, 91);
-  font-size: 30px;
-  margin: 10px;
+  font-size: 20px;
+  margin: 0px;
   cursor: "pointer";
-  display: flex;
+  display: inline-block;
 }
 
 .logoout {

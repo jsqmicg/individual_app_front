@@ -1,13 +1,16 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import ReactMapGL, { Marker, Popup, NavigationControl } from "react-map-gl";
 import { Room, Star } from "@material-ui/icons";
 import MapStyles from "../styles/Map.css";
 import axios from "axios";
 import { format } from "timeago.js";
-import logo from "../images/ITER_LOGO.png";
+import logo from "../images/iter_final.png";
 import { width } from "@material-ui/system";
 import { Toolbar } from "@material-ui/core";
+import Geocoder from "react-map-gl-geocoder";
+import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 function Map({ history }) {
   const [currentUser, setCurrentUser] = useState("js");
@@ -34,7 +37,7 @@ function Map({ history }) {
           height: "100vh",
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
-          zoom: 17,
+          zoom: 15.6,
         });
       },
       (err) => console.log(err),
@@ -52,6 +55,23 @@ function Map({ history }) {
     getPins();
   }, []);
 
+  const mapRef = useRef();
+  const handleViewportChange = useCallback(
+    (newViewport) => setViewport(newViewport),
+    []
+  );
+
+  const handleGeocoderViewportChange = useCallback(
+    (newViewport) => {
+      const geocoderDefaultOverrides = { transitionDuration: 1000 };
+
+      return handleViewportChange({
+        ...newViewport,
+        ...geocoderDefaultOverrides,
+      });
+    },
+    [handleViewportChange]
+  );
   const handleMarkerClick = (id, lat, long) => {
     setCurrentPlaceId(id);
     setViewport({ ...viewport, latitude: lat, longitude: long });
@@ -91,8 +111,8 @@ function Map({ history }) {
   };
 
   const navControlStyle = {
-    right: 80,
-    top: 1350,
+    right: 40,
+    top: 640,
   };
 
   const handleLogout = () => {
@@ -101,6 +121,7 @@ function Map({ history }) {
   };
   return (
     <ReactMapGL
+      ref={mapRef}
       {...viewport}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
       onViewportChange={(nextViewport) => setViewport(nextViewport)}
@@ -108,18 +129,26 @@ function Map({ history }) {
       onDblClick={handleAddClick}
       transitionDuration="200"
     >
+      <div className="geocoder">
+        <Geocoder
+          mapRef={mapRef}
+          onViewportChange={handleGeocoderViewportChange}
+          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
+          position="bottom-left"
+        />
+      </div>
       <NavigationControl style={navControlStyle} />
       {pins.map((p) => (
         <>
           <Marker
             latitude={p.lat}
             longitude={p.long}
-            offsetLeft={-viewport.zoom * 2}
-            offsetTop={-viewport.zoom * 4}
+            offsetLeft={-viewport.zoom * 1}
+            offsetTop={-viewport.zoom * 2}
           >
             <Room
               style={{
-                fontSize: viewport.zoom * 4,
+                fontSize: viewport.zoom * 2,
                 cursor: "pointer",
                 color: "rgb(212, 31, 91)",
               }}
@@ -132,7 +161,7 @@ function Map({ history }) {
               longitude={p.long}
               closeButton={true}
               closeOnClick={false}
-              anchor="bottom"
+              anchor="top"
               onClose={() => setCurrentPlaceId(null)}
               cursor="pointer"
             >
@@ -175,7 +204,7 @@ function Map({ history }) {
           longitude={newPlace.long}
           closeButton={true}
           closeOnClick={false}
-          anchor="left"
+          anchor="top"
           onClose={() => setNewPlace(null)}
         >
           <div>
@@ -215,26 +244,29 @@ function Map({ history }) {
           </div>
         </Popup>
       )}
-      <Toolbar>
+      <div className="topbar">
         <img
           style={{
-            height: "200px",
-            width: "200px",
+            marginTop: "5px",
+            marginLeft: "5px",
+            height: "100px",
+            width: "100px",
           }}
-          className="header__logo"
           src={logo}
           alt=""
         />
-        {currentUser ? (
-          <div className="buttons">
-            <button className="buttonlogout" onClick={handleLogout}>
-              Log Out
-            </button>
-          </div>
-        ) : (
-          console.log("you are not login")
-        )}
-      </Toolbar>
+        <>
+          {currentUser ? (
+            <div className="buttons">
+              <button className="buttonlogout" onClick={handleLogout}>
+                <b>Log Out</b>
+              </button>
+            </div>
+          ) : (
+            console.log("you are not login")
+          )}
+        </>
+      </div>
     </ReactMapGL>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import micro from "../images/microphone.jpg";
+import travelpassword from "../images/travelpassword.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 const ResetPassword = ({ match }) => {
@@ -88,7 +88,7 @@ const ResetPassword = ({ match }) => {
         <div className="flex-1 bg-indigo-100 text-center hidden lg:flex">
           <div
             className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${micro})` }}
+            style={{ backgroundImage: `url(${travelpassword})` }}
           ></div>
         </div>
       </div>
