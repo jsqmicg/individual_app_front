@@ -179,19 +179,29 @@ function Map({ history }) {
           onClose={() => setNewPlace(null)}
         >
           <div>
-            <form onSubmit={handleSubmit}>
-              <label>Title</label>
+            <form className="form" onSubmit={handleSubmit}>
+              <label>
+                <b>Title</b>
+              </label>
               <input
                 placeholder="Enter a title"
                 onChange={(e) => setTitle(e.target.value)}
               />
-              <label>Review</label>
+              <label>
+                <b>Review</b>
+              </label>
               <textarea
+                className="textareas"
                 placeholder="Enter a review of the place"
                 onChange={(e) => setDesc(e.target.value)}
               />
-              <label>Rating</label>
-              <select onChange={(e) => setRating(e.target.value)}>
+              <label>
+                <b>Rating</b>
+              </label>
+              <select
+                className="rating"
+                onChange={(e) => setRating(e.target.value)}
+              >
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
