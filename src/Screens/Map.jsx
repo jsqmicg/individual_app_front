@@ -61,6 +61,8 @@ function Map({ history }) {
     []
   );
 
+  console.log(viewport.latitude, viewport.longitude);
+
   const handleGeocoderViewportChange = useCallback(
     (newViewport) => {
       const geocoderDefaultOverrides = { transitionDuration: 1000 };
@@ -135,6 +137,11 @@ function Map({ history }) {
           onViewportChange={handleGeocoderViewportChange}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
           position="bottom-left"
+          trackProximity={true}
+          proximity={{
+            latitude: viewport.latitude,
+            longitude: viewport.longitude,
+          }}
         />
       </div>
       <NavigationControl style={navControlStyle} />
