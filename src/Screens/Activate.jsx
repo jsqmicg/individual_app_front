@@ -68,6 +68,12 @@ const Activate = ({ match }) => {
                   <i className="fas fa-user-plus fa 1x w-6  -ml-2" />
                   <span className="ml-3">Activate your Account</span>
                 </button>
+                <Link
+                  to="/"
+                  className="no-underline hover:underline text-yellow-600 text-md text-right absolute right-0  mt-4"
+                >
+                  Sign in
+                </Link>
               </div>
               <div className="my-12 border-b text-center">
                 <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2 ">

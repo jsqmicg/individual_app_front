@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import travelpassword from "../images/travelpassword.jpg";
+import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 const ResetPassword = ({ match }) => {
@@ -81,6 +82,12 @@ const ResetPassword = ({ match }) => {
                   <i className="fas fa-sign-in-alt  w-6  -ml-2" />
                   <span className="ml-3">Submit</span>
                 </button>
+                <Link
+                  to="/"
+                  className="no-underline hover:underline text-indigo-500 text-md text-right   mt-0"
+                >
+                  Sign in
+                </Link>
               </form>
             </div>
           </div>
