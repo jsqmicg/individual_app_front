@@ -8,7 +8,6 @@ import Register from "./Screens/Register";
 import Activate from "./Screens/Activate";
 import Login from "./Screens/Login";
 import ForgetPassword from "./Screens/Forget";
-import SwipeCards from "./views/SwipeCards";
 import ResetPassword from "./Screens/Reset";
 import "react-toastify/dist/ReactToastify.css";
 import Map from "./Screens/Map";
@@ -21,11 +20,6 @@ ReactDOM.render(
         path="/register"
         exact
         render={(props) => <Register {...props} />}
-      />
-      <Route
-        path="/match"
-        exact
-        render={(props) => <SwipeCards {...props} />}
       />
       <Route
         path="/users/activate/:token"
